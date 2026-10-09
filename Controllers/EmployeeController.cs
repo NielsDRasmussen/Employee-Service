@@ -75,6 +75,15 @@ namespace IBASEmployeeService.Controllers
             };
             return employees;
         }
+        
+        [HttpGet("GetEmployeesByDepartment/{departmentId}")]
+        public IEnumerable<Employee> GetEmployeesByDepartment(int departmentId)
+        {
+            var employees = Get();
+
+            return employees.Where(e => e.Department.Id == departmentId);
+        }
+
     }
 
 
